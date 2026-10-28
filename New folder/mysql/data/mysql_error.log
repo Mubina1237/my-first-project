@@ -1,0 +1,116 @@
+2025-08-12 11:41:59 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 11436
+2025-08-12 11:41:59 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2025-08-12 11:41:59 0 [Note] InnoDB: Uses event mutexes
+2025-08-12 11:41:59 0 [Note] InnoDB: Compressed tables use zlib 1.3
+2025-08-12 11:41:59 0 [Note] InnoDB: Number of pools: 1
+2025-08-12 11:41:59 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2025-08-12 11:41:59 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2025-08-12 11:41:59 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-08-12 11:42:00 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=300288
+2025-08-12 11:42:01 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2025-08-12 11:42:01 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2025-08-12 11:42:01 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2025-08-12 11:42:01 0 [Note] InnoDB: Setting file 'C:\Users\asxd\OneDrive\Desktop\New folder\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2025-08-12 11:42:01 0 [Note] InnoDB: File 'C:\Users\asxd\OneDrive\Desktop\New folder\mysql\data\ibtmp1' size is now 12 MB.
+2025-08-12 11:42:01 0 [Note] InnoDB: Waiting for purge to start
+2025-08-12 11:42:01 0 [Note] InnoDB: 10.4.32 started; log sequence number 300297; transaction id 170
+2025-08-12 11:42:01 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\asxd\OneDrive\Desktop\New folder\mysql\data\ib_buffer_pool
+2025-08-12 11:42:01 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 11:42:01 0 [Note] InnoDB: Buffer pool(s) load completed at 250812 11:42:01
+2025-08-12 11:42:02 0 [Note] Server socket created on IP: '::'.
+2025-08-12 16:44:45 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 11532
+2025-08-12 16:44:45 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:44:45 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:44:45 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:44:45 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:44:45 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:44:45 0 [ERROR] Aborting
+2025-08-12 16:44:52 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 15100
+2025-08-12 16:44:52 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:44:52 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:44:52 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:44:52 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:44:52 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:44:52 0 [ERROR] Aborting
+2025-08-12 16:45:01 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 7640
+2025-08-12 16:45:01 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:45:01 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:45:01 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:45:01 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:45:01 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:45:01 0 [ERROR] Aborting
+2025-08-12 16:45:13 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 1560
+2025-08-12 16:45:13 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:45:13 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:45:13 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:45:13 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:45:13 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:45:13 0 [ERROR] Aborting
+2025-08-12 16:45:29 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 16196
+2025-08-12 16:45:29 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:45:29 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:45:29 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:45:29 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:45:29 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:45:29 0 [ERROR] Aborting
+2025-08-12 16:46:23 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 1552
+2025-08-12 16:46:23 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:46:23 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:46:23 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:46:23 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:46:23 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:46:23 0 [ERROR] Aborting
+2202052-50-8-0182- 121 61:65:05:03:53 50  0[ N[oNtoet]e ]S tSatratritnign gM aMrairaiDaBD B1 01.04..43.23-2M-aMrairaiDaBD Bs osuorucrec er erveivsiisoino nc 4c144134f39f0990592582e83e3ffaabb0066777a28631d10389354c491 as process 5552
+7a28631d10389354c491 as process 11188
+2025-08-12 16:50:35 0 [2E02R5R-O0R8]- 1I2n n1o6:D5B0: :T3h5e  0 i[nEnRoRdObR_]s yInsntoeDmB :d aTthae  fiinlneo d'bi_bsdyasttae1m'  dmautsat  fbiel ew ritable
+2025-08-12 16:50:35 0 [ERROR] Inno'DiBbd:at a1T'h em uisntn obed bw_rsiytsatbelme 
+data file 'ibdata1' must2 0b2e5 -w0r8i-t1a2b l1e6
+:50:35 0 [ERROR] InnoD2B0:2 5T-h0e8 -i1n2n o1d6b:_5s0y:s3t5e m0  d[aEtRaR OfRi]l e P'liugbind a'tIan1n'o DB' registration as a STORAGE ENGINE failed.
+must be writable
+2025-08-12 16:50:35 0 [ERROR] Plugin '2I0n25n-o0D8B-'1 2re gi1s6:t5r0a:t3i5o n0  a[Nso tae ]S TPlOuRgAiGEn  E'NFGEIENDBEAC Kf'a iils eddi.sa
+bled.
+2025-08-12 16:50:35 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-0280-2152- 081-61:2 5106::3550 :0 3[5E R0R O[RE]R RUOnRk]n oUwnnk/nuonwsnu/pupnosrutpepdo rstteodr asgteo reanggei neen:g iInnen:o DIBn
+noDB
+2025-08-12 16:50:35 0 [ERROR] Aborting
+2025-08-12 16:50:35 0 [ERROR] Aborting
+2025-08-12 16:50:45 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 10140
+2025-08-12 16:50:45 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:50:45 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:50:45 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:50:45 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:50:45 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:50:45 0 [ERROR] Aborting
+2025-08-12 16:51:09 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 5524
+2025-08-12 16:51:09 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:51:09 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:51:09 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:51:09 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:51:09 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:51:09 0 [ERROR] Aborting
+2025-08-12 16:51:09 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 11804
+2025-08-12 16:51:09 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:51:09 0 [ERROR] InnoDB: The innodb_system data file 'ibdata1' must be writable
+2025-08-12 16:51:09 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2025-08-12 16:51:09 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-08-12 16:51:09 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+2025-08-12 16:51:09 0 [ERROR] Aborting
+2025-09-04 10:14:34 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 40204
+2025-09-04 10:14:35 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2025-09-04 10:14:35 0 [Note] InnoDB: Uses event mutexes
+2025-09-04 10:14:35 0 [Note] InnoDB: Compressed tables use zlib 1.3
+2025-09-04 10:14:35 0 [Note] InnoDB: Number of pools: 1
+2025-09-04 10:14:35 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2025-09-04 10:14:35 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2025-09-04 10:14:35 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-09-04 10:14:36 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=315749
+2025-09-04 10:14:41 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2025-09-04 10:14:41 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2025-09-04 10:14:41 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2025-09-04 10:14:41 0 [Note] InnoDB: Setting file 'C:\Users\asxd\OneDrive\Desktop\New folder\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2025-09-04 10:14:41 0 [Note] InnoDB: File 'C:\Users\asxd\OneDrive\Desktop\New folder\mysql\data\ibtmp1' size is now 12 MB.
+2025-09-04 10:14:41 0 [Note] InnoDB: 10.4.32 started; log sequence number 315758; transaction id 227
+2025-09-04 10:14:41 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\asxd\OneDrive\Desktop\New folder\mysql\data\ib_buffer_pool
+2025-09-04 10:14:41 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-09-04 10:14:42 0 [Note] InnoDB: Buffer pool(s) load completed at 250904 10:14:42
+2025-09-04 10:14:42 0 [Note] Server socket created on IP: '::'.

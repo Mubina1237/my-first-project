@@ -1,0 +1,1 @@
+ALTER TABLE books ADD likes INT DEFAULT 0;

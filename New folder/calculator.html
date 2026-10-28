@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pink Scientific Calculator</title>
+<style>
+:root{
+  --bg:#ffe4ee;--body:#ffc2d9;--screen:#fff0f6;--screen-text:#8a1c4a;
+  --num:#ffffff;--num-text:#b8235f;--sci:#ff9ec4;--op:#ff6fa5;--eq:#d6246e;--clear:#e84a8a;
+}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);display:flex;align-items:center;justify-content:center;
+  font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;padding:10px;box-sizing:border-box}
+.calc{width:min(100%,420px);background:var(--body);border-radius:26px;padding:14px;
+  box-shadow:0 18px 40px rgba(214,36,110,.3)}
+.screen{background:var(--screen);color:var(--screen-text);border-radius:16px;padding:12px 16px;
+  text-align:right;min-height:92px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.expr{font-size:20px;min-height:26px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.out{font-size:34px;font-weight:700;min-height:42px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;opacity:.75}
+.out.final{opacity:1}
+.keys{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+button{border:0;border-radius:14px;height:50px;font-size:17px;font-weight:600;
+  font-family:inherit;color:#fff;cursor:pointer;transition:transform .08s,filter .15s;padding:0}
+button:active{transform:scale(.93)}
+button:hover{filter:brightness(1.07)}
+.n{background:var(--num);color:var(--num-text);font-size:20px}
+.s{background:var(--sci)}
+.o{background:var(--op);font-size:20px}
+.c{background:var(--clear)}
+.e{background:var(--eq);grid-column:span 2;font-size:22px}
+.z{grid-column:span 2}
+</style>
+</head>
+<body>
+<div class="calc">
+  <div class="screen">
+    <div class="expr" id="expr"></div>
+    <div class="out" id="out"></div>
+  </div>
+  <div class="keys" id="keys"></div>
+</div>
+
+<script>
+// [label, action, class]
+const L=[
+ ["Deg","MODE","s"],["sin","sin(","s"],["cos","cos(","s"],["tan","tan(","s"],["DEL","DEL","c"],
+ ["sin⁻¹","sin⁻¹(","s"],["cos⁻¹","cos⁻¹(","s"],["tan⁻¹","tan⁻¹(","s"],["(","(","s"],[")",")","s"],
+ ["ln","ln(","s"],["log","log(","s"],["√","√(","s"],["x²","^2","s"],["AC","AC","c"],
+ ["π","π","s"],["e","e","s"],["n!","!","s"],["xʸ","^","s"],["÷","÷","o"],
+ ["7","7","n"],["8","8","n"],["9","9","n"],["1/x","^(−1)","s"],["×","×","o"],
+ ["4","4","n"],["5","5","n"],["6","6","n"],["%","%","s"],["−","−","o"],
+ ["1","1","n"],["2","2","n"],["3","3","n"],["Ans","Ans","s"],["+","+","o"],
+ ["0","0","n z"],[".",".","n"],["=","=","e"]
+];
+
+let expr="", ans=0, deg=true, justEq=false;
+const exprEl=document.getElementById("expr");
+const outEl=document.getElementById("out");
+
+// 1) Text ko tokens mein todna
+function tokenize(s){
+  const re=/^(?:(\d+\.?\d*|\.\d+)|(sin⁻¹|cos⁻¹|tan⁻¹|sin|cos|tan|log|ln|√)|(π|e|Ans)|([+\-−×÷*\/^!%()]))/;
+  const t=[];
+  while(s.length){
+    const m=s.match(re);
+    if(!m) throw new Error("bad");
+    if(m[1]!==undefined) t.push({t:"num",v:parseFloat(m[1])});
+    else if(m[2]) t.push({t:"fn",v:m[2]});
+    else if(m[3]) t.push({t:"const",v:m[3]});
+    else { const o=m[4];
+      t.push({t:"op",v:o==="−"?"-":o==="×"?"*":o==="÷"?"/":o}); }
+    s=s.slice(m[0].length);
+  }
+  return t;
+}
+
+function fact(n){
+  if(n<0||n!==Math.floor(n)||n>170) throw new Error("fact");
+  let r=1; for(let i=2;i<=n;i++) r*=i; return r;
+}
+
+function applyFn(f,x){
+  const k=deg?Math.PI/180:1;
+  switch(f){
+    case "sin": return Math.sin(x*k);
+    case "cos": return Math.cos(x*k);
+    case "tan": return Math.tan(x*k);
+    case "sin⁻¹": return Math.asin(x)/k;
+    case "cos⁻¹": return Math.acos(x)/k;
+    case "tan⁻¹": return Math.atan(x)/k;
+    case "log": return Math.log10(x);
+    case "ln": return Math.log(x);
+    case "√": return Math.sqrt(x);
+  }
+}
+
+// 2) Parser: BODMAS ke hisaab se hisaab lagana
+function evaluate(s){
+  const t=tokenize(s); let p=0;
+  const peek=()=>t[p], next=()=>t[p++];
+  const isOp=(k,v)=>k&&k.t==="op"&&k.v===v;
+
+  function expr_(){            // + aur −
+    let v=term();
+    for(;;){
+      const k=peek();
+      if(isOp(k,"+")){next(); v+=term();}
+      else if(isOp(k,"-")){next(); v-=term();}
+      else break;
+    }
+    return v;
+  }
+  function term(){            // × aur ÷ (aur 2π, 3(4+1) jaisa)
+    let v=unary();
+    for(;;){
+      const k=peek();
+      if(isOp(k,"*")){next(); v*=unary();}
+      else if(isOp(k,"/")){next(); v/=unary();}
+      else if(k&&(k.t==="num"||k.t==="fn"||k.t==="const"||isOp(k,"("))) v*=unary();
+      else break;
+    }
+    return v;
+  }
+  function unary(){           // −5, +5
+    const k=peek();
+    if(isOp(k,"-")){next(); return -unary();}
+    if(isOp(k,"+")){next(); return unary();}
+    return power();
+  }
+  function power(){           // x^y
+    const b=postfix();
+    if(isOp(peek(),"^")){next(); return Math.pow(b,unary());}
+    return b;
+  }
+  function postfix(){         // n! aur %
+    let v=primary();
+    for(;;){
+      const k=peek();
+      if(isOp(k,"!")){next(); v=fact(v);}
+      else if(isOp(k,"%")){next(); v/=100;}
+      else break;
+    }
+    return v;
+  }
+  function close(){
+    if(isOp(peek(),")")) next();
+    else if(peek()) throw new Error("paren");
+  }
+  function primary(){         // number, constant, function, bracket
+    const k=next();
+    if(!k) throw new Error("end");
+    if(k.t==="num") return k.v;
+    if(k.t==="const") return k.v==="π"?Math.PI:k.v==="e"?Math.E:ans;
+    if(k.t==="fn"){
+      if(!isOp(next(),"(")) throw new Error("fn");
+      const x=expr_(); close();
+      return applyFn(k.v,x);
+    }
+    if(isOp(k,"(")){ const x=expr_(); close(); return x; }
+    throw new Error("syntax");
+  }
+
+  const r=expr_();
+  if(p<t.length) throw new Error("extra");
+  if(!isFinite(r)) throw new Error("math");
+  return r;
+}
+
+function fmt(r){
+  if(Math.abs(r)<1e-12) r=0;
+  r=parseFloat(r.toPrecision(12));
+  const s=String(r);
+  return s.length>14?r.toExponential(6):s;
+}
+
+function render(final){
+  exprEl.textContent=expr;
+  exprEl.scrollLeft=exprEl.scrollWidth;
+  outEl.classList.toggle("final",!!final);
+  if(final) return;
+  try{
+    outEl.textContent = expr && /[+\-−×÷^!%(]|sin|cos|tan|log|ln|√/.test(expr)
+      ? fmt(evaluate(expr)) : "";
+  }catch(e){ outEl.textContent=""; }
+}
+
+// 3) Button dabane par kya ho
+function press(a){
+  if(a==="MODE"){
+    deg=!deg;
+    document.getElementById("mode").textContent=deg?"Deg":"Rad";
+    render(); return;
+  }
+  if(a==="AC"){ expr=""; justEq=false; outEl.textContent=""; render(); return; }
+  if(a==="DEL"){
+    expr=expr.replace(/(sin⁻¹\(|cos⁻¹\(|tan⁻¹\(|sin\(|cos\(|tan\(|log\(|ln\(|√\(|Ans|.)$/u,"");
+    justEq=false; render(); return;
+  }
+  if(a==="="){
+    if(!expr) return;
+    try{
+      const r=evaluate(expr);
+      ans=r; expr=fmt(r);
+      justEq=true; render(true);
+      outEl.textContent=expr; exprEl.textContent="";
+    }catch(e){
+      outEl.textContent="Error"; outEl.classList.add("final");
+    }
+    return;
+  }
+  if(justEq){
+    // naya number likha toh purana hatao; operator likha toh result se aage chalo
+    if(/^[\d.πe(]|^[a-zA-Z√]/.test(a)) expr="";
+    justEq=false;
+  }
+  expr+=a; render();
+}
+
+// Buttons banana
+const keys=document.getElementById("keys");
+L.forEach(([lab,act,cls])=>{
+  const b=document.createElement("button");
+  b.textContent=lab; b.className=cls;
+  if(act==="MODE") b.id="mode";
+  b.addEventListener("click",()=>press(act));
+  keys.appendChild(b);
+});
+
+// Keyboard support
+document.addEventListener("keydown",e=>{
+  const m={"*":"×","/":"÷","-":"−","Enter":"=","Escape":"AC","Backspace":"DEL","p":"π"};
+  const k=m[e.key]||e.key;
+  if(/^[0-9.+=%^!()πe]$|^[×÷−]$|^(AC|DEL)$/.test(k)){ e.preventDefault(); press(k); }
+});
+render();
+</script>
+</body>
+</html>

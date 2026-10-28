@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html 1ang="ur">
+    <head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,
+intail-scale=1.0">
+<title>My Pay App</title>
+    <style>
+        *  {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial , sans-serif ;
+        }
+ body{
+    background: #f1f3f4;
+    display:flex
+    justify-content;    center:
+    align-items;  center:
+    min-height;  100vh;
+   }
+ .phone {
+    width: 360px;
+    background: white;
+    border-radius:25px;
+    rgba(0,0,0,0.15);
+    overflow: hidden;
+ }
+ .header{
+    background: #1a73e8;
+    color:white;
+    padding :25px 20px;
+ }
+ .balance-box {
+margin-top: 15px;
+background:
+rgba(255,255,255,0.15);
+padding:15px;
+border-radius:15px;
+ }
+ .Balance-box h1{
+    font-size:13px;
+    opacity: 0.9;
+ }
+ .actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+    background :white;
+    
+ }
+.action {
+    text-align: center;
+    cursor : pointer;
+
+} 
+.icon{
+    width:55px;
+    height: 55px;
+    border-radius:50%;
+    background: #e8f0fe;
+    color: #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 6px;
+}
+.action span {
+    font-size: 13px;
+    color: #333;
+}
+.section {
+    padding:15px 20px;
+}
+.section h3 {
+    font-size:15px;
+    margin-bottom:10px;
+    color:#202124;
+}
+.transction{
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+    background:#f8f9fa;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+.transction  .name {
+    font-size: 14px;
+    font-weight:bold;
+}    
+.amount {
+    font-weight: bold;
+}
+.received {
+    color: green;
+}
+.pay button{
+    display :biock;
+    width:calc(100% -40px);
+    margin: 10px 20px 25px;
+    padding: 14px;
+    border:none;
+    border-radius: 30px;
+    background: #1a73e8;
+    color:white;
+    font-size: 16px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+   .pay-button :hover {
+    bckground: #1765cc
+   }
+</style>
+<body>
+    <div class="phone">
+        <div class="header">
+            <h2>Assalam o Alaikum, Mubina 
+            </h2>
+            <div class="balance-box">
+                <p>Total balance</p>
+                <h1>Rs 25,000</h1>
+                </div>
+                </div>
+                <div class="action">
+                    <div class="action"
+                    <div class="icon">&#128228</div>
+                    <span>Send</span>
+                    </div>
+
+                    <div class="action">
+                        <div class="icon">&#128229</div>
+                        <span>Receive</span>
+                        </div>
+
+                        <div class="action">
+                            <div class="icon"> &#128241</div>
+                            <span>mobile</span>
+                            </div>
+
+                            <div class="action">
+                                <div class="icon"> &#129534</div>
+                                <span>Bills</span>
+                                </div>
+                                </div>
+                                <div class="section">
+                 <h3>recent Transactions</h3>
+                                <div class="name">Ayesha khan</div>
+                                <div class="date">today, 9:10 AM</div>
+                                </div>
+
+                                <div class="amount received">+Rs 2,500</div>
+                            </div>
+                            <div class="transction">
+                                <div
+                                class="date">Yesterday</div>
+                                </div>
+                                <div class="amount sent">-Rs500</div>
+                                <div class="transction">
+
+                                </div>
+                                <div class="name">ali
+                                    Ahmed</div>
+                                    <div class="date">Monday</div>
+                                </div>
+                                <div class="amount sent">-Rs 12,00</div>
+                            </div>
+                        </div>
+                        <button class="pay button"
+                        onclick="sendMessage()">
+                        Pay Now
+                        </button>
+
+                    </div>
+
+                    <script>
+                        function  sendMessage() {
+                            alert("Payment demo sucessfully clicked!");
+                          }
+</script>
+                        </body>
+                        </html>
+

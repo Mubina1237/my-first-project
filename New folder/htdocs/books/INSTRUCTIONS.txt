@@ -1,0 +1,11 @@
+1. Download Xampp
+2. Run Xampp and start Apache and MySQL in it.
+3. Open browser and paste following link there "http://localhost/phpmyadmin".
+4. Now click on the "New" at your left sceen and create a new database named as "bookshop".
+5. In the bookshop database click on sql tab and write "Front End sql" code there.
+6. Click on Go.
+7. Now Go in "My Computer" and move into the xampp that you installed.
+8. In the xampp folder go to htdoc folder and create a new folder name as bookshop.
+9. Now write you php codes and save them using .php extension.
+10. Now open your brownser and type "http://localhost/book/" and click enter you will get your results.
+

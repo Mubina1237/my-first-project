@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Design Roadmap</title>
+<style>
+:root{--bg:#000;--tx:#f2f2f2;--ln:#cfcfcf}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px 12px 0}
+.wrap{max-width:1100px;margin:0 auto;text-align:center}
+.root{font-size:44px;line-height:1}
+.root h1{font-size:30px;margin-top:8px}
+.vl{width:2px;height:28px;background:var(--ln);margin:0 auto}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+.cols::before{content:"";position:absolute;top:0;left:16.6%;right:16.6%;height:2px;background:var(--ln)}
+.col{padding-top:2px;position:relative}
+.col::before{content:"";position:absolute;top:0;left:50%;width:2px;height:24px;background:var(--ln)}
+.head{margin-top:24px;font-size:36px}
+.head h2{font-size:16px;margin-top:4px;color:var(--c)}
+.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:22px;position:relative}
+.subs::before{content:"";position:absolute;top:-10px;left:16.6%;right:16.6%;height:2px;background:var(--ln)}
+.sub{position:relative}
+.sub::before{content:"";position:absolute;top:-10px;left:50%;width:2px;height:10px;background:var(--ln)}
+.item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;padding:14px 0 0;position:relative}
+.item i{font-style:normal;font-size:26px;filter:drop-shadow(0 0 6px var(--c))}
+.item + .item::before{content:"";position:absolute;top:2px;left:50%;width:2px;height:10px;background:#777}
+.item:first-child{font-weight:600}
+.tools{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-top:18px;padding:10px 0;border-top:2px solid var(--ln)}
+.tools .item{width:78px}
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+.groups::before{content:"";position:absolute;top:0;left:16.6%;right:16.6%;height:2px;background:var(--ln)}
+.g{position:relative;padding-top:24px}
+.g::before{content:"";position:absolute;top:0;left:50%;width:2px;height:20px;background:var(--ln)}
+.g h3{font-size:15px;color:var(--c);margin-top:6px}
+.g .head{margin-top:0;font-size:32px}
+.grow{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 12px;margin-top:12px}
+.grow .item{width:64px;padding-top:0}
+.footer{margin-top:28px;background:#0b2a4a;border-radius:14px 14px 0 0;padding:18px;font-size:22px;font-weight:700}
+.footer small{display:block;font-size:14px;font-weight:500;margin-top:4px}
+.footer b{color:#36b4ff}
+@media(max-width:700px){
+ .cols,.groups{grid-template-columns:1fr}
+ .cols::before,.groups::before,.subs::before,.sub::before,.col::before,.g::before{display:none}
+ .subs{margin-top:12px}
+ .col,.g{margin-bottom:22px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="root">🖥️<h1>Web Design</h1></div>
+  <div class="vl"></div>
+  <div class="cols" id="cols"></div>
+  <div class="tools" id="tools"></div>
+  <div class="vl" style="height:20px"></div>
+  <div class="groups" id="groups"></div>
+  <div class="footer">AiTechWorlds.com<small>Join <b>Telegram</b> for Free Tech Resources</small></div>
+</div>
+
+<script>
+const columns = [
+  {name:"Design Fundamentals", icon:"✏️", color:"#a855f7", subs:[
+    [["🎨","Color Theory"],["🔵","Color Schemes"],["◐","Contrast"],["🧠","Psychology of Colors"]],
+    [["𝐓","Typography"],["Aa","Font Pairing"],["Tt","Hierarchy"],["👁️","Readability"]],
+    [["▦","Layout & Composition"],["⊞","Grid Systems"],["⛶","Spacing"],["⚖️","Balance"]]
+  ]},
+  {name:"Development Skills", icon:"</>", color:"#ec4899", subs:[
+    [["🟧","HTML"],["🏷️","Semantic HTML"],["📝","Forms & Inputs"],["🖼️","Media Elements"]],
+    [["🟦","CSS"],["{ }","Selectors & Properties"],["▤","Flexbox"],["▥","Grid Layout"]],
+    [["🟨","JavaScript"],["🌲","DOM Manipulation"],["⚡","Events"],["👆","Interactivity"]]
+  ]},
+  {name:"Design Specializations", icon:"🖌️", color:"#38bdf8", subs:[
+    [["📱","UI/UX Design"],["👥","User Research"],["✂️","Wireframing"],["🔗","Prototyping"]],
+    [["💻","Responsive Design"],["📐","Media Queries"],["📲","Mobile First"],["🌐","Cross Browser"]],
+    [["⭐","Branding & Identity"],["✒️","Logo Design"],["📖","Brand Guidelines"],["👁️","Visual Identity"]]
+  ]}
+];
+
+const tools = [
+  ["🎯","Figma"],["Xd","Adobe XD"],["💎","Sketch"],["W","Webflow"],["B","Bootstrap"],["𝓢","Sass"],["🌊","Tailwind CSS"]
+];
+
+const groups = [
+  {name:"Tools & Frameworks", icon:"⚙️", color:"#4ade80", items:[["🟦","VS Code"],["🔀","Git"],["🔍","Chrome DevTools"],["🚀","Postman"]]},
+  {name:"Platforms & Hosting", icon:"☁️", color:"#38bdf8", items:[["🐙","GitHub"],["🔷","Netlify"],["▲","Vercel"],["🔥","Firebase"]]},
+  {name:"Best Practices", icon:"✅", color:"#a3e635", items:[["⏱️","Performance"],["🔎","SEO"],["♿","Accessibility"],["🛡️","Security"]]}
+];
+
+const item = (ic, t) => `<div class="item"><i>${ic}</i><span>${t}</span></div>`;
+
+document.getElementById("cols").innerHTML = columns.map(c => `
+  <div class="col" style="--c:${c.color}">
+    <div class="head">${c.icon}<h2>${c.name}</h2></div>
+    <div class="subs">
+      ${c.subs.map(s => `<div class="sub">${s.map(([i,t]) => item(i,t)).join("")}</div>`).join("")}
+    </div>
+  </div>`).join("");
+
+document.getElementById("tools").innerHTML = tools.map(([i,t]) => item(i,t)).join("");
+
+document.getElementById("groups").innerHTML = groups.map(g => `
+  <div class="g" style="--c:${g.color}">
+    <div class="head">${g.icon}</div>
+    <h3>${g.name}</h3>
+    <div class="grow">${g.items.map(([i,t]) => item(i,t)).join("")}</div>
+  </div>`).join("");
+</script>
+</body>
+</html>
